@@ -1,0 +1,10 @@
+{
+  "name": "Codecov Python RTI example",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Codecov",
+  "license": "MIT",
+  "devDependencies": {
+    "tailwindcss": "^3.0.12"
+  }
+}
