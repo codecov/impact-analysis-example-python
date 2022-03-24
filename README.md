@@ -24,4 +24,4 @@ comment:
     show_critical_paths: true
 ```
 
-    Providing these settings in the `codecov.yml` will ensure that impacted files are marked as critical and impacted entrypoints are also shown in the Pull Request comment.
+Providing these settings in the `codecov.yml` will ensure that impacted files are marked as critical and impacted entrypoints are also shown in the Pull Request comment.
