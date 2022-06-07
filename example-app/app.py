@@ -60,7 +60,7 @@ FlaskInstrumentor().instrument_app(app)
 def index():
     return render_template('main.html')
 
-@app.route('/time')
+@app.route('/time1')
 def current_time():
     return render_template(
         'time.html',
