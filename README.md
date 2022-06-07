@@ -2,7 +2,7 @@
 
 [![codecov](https://codecov.io/gh/codecov/python-rti-example/branch/main/graph/badge.svg?token=pjzL5RLQL1)](https://codecov.io/gh/codecov/python-rti-example)
 
-A repository demonstrating how to use Codecov's [Runtime Insights](https://about.codecov.io/product/feature/runtime-insights/) feature with the Flask framework. This example repository leverages the [codecov/python-codecov-opentelemetry](https://github.com/codecov/python-codecov-opentelemetry) package to send information to Codecov's Runtime Insights API. It is recommended to view the README for that package to learn more about Runtime Insights.
+A repository demonstrating how to use Codecov's [Runtime Insights](https://about.codecov.io/product/feature/runtime-insights/) feature with the Flask framework. This example repository leverages the [codecov/opentelem-python](https://github.com/codecov/opentelem-python) package to send information to Codecov's Runtime Insights API. It is recommended to view the README for that package to learn more about Runtime Insights.
 
 This repository is not intended to be used directly, but rather referred to as a reference for how to integrate Runtime Insights into your own python projects.
 
