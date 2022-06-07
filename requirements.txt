@@ -17,7 +17,7 @@ opentelemetry-instrumentation==0.31b0
 opentelemetry-instrumentation-flask==0.31b0
 opentelemetry-instrumentation-wsgi==0.31b0
 opentelemetry-sdk==1.11.1
-opentelemetry-semantic-conventions==0.30b1
+opentelemetry-semantic-conventions==0.31b0
 opentelemetry-util-http==0.31b0
 packaging==21.3
 pluggy==1.0.0
