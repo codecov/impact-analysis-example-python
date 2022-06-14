@@ -24,8 +24,8 @@ from utils.time import format_time
 provider = TracerProvider()
 trace.set_tracer_provider(provider)
 
-current_version = os.getenv("CURRENT_VERSION", "0.0.1")
-current_env = "production"
+current_version = os.getenv("CURRENT_VERSION", "0.0.2")
+current_env = os.getenv("APP_ENV", "production")
 export_rate = 100
 untracked_export_rate = 0
 
@@ -46,6 +46,7 @@ generator, exporter = get_codecov_opentelemetry_instances(
 )
 provider.add_span_processor(generator)
 provider.add_span_processor(BatchSpanProcessor(exporter))
+provider.add_span_processor(SimpleSpanProcessor(ConsoleSpanExporter()))
 
 
 app = Flask(
