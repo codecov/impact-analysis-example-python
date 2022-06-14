@@ -125,7 +125,7 @@ Open a new pull request. Be sure to set the base branch to your fork.
 **Step 7: Seeing Impact Analysis in the UI**
 -------------
 
-After CI/CD has completed, you should see a comment from Codecov. The comment will now show 2 new elements
+After CI/CD has completed, you should see a comment from Codecov similar to this [PR](https://github.com/codecov/impact-analysis-example-python/pull/14). The comment will now show 2 new elements
 
 1. Under `impacted files`, you should see a `Critical` label next to `example-app/utils/time.py`. This means that the PR has a change in that file that is frequently hit in production.
 2. Under `related entrypoints`, you should see `/time`. This means that the PR has a change that touches that endpoint.
