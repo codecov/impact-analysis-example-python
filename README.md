@@ -101,7 +101,8 @@ to
 ```
     return datetime.strftime(time, '%Y-%m-%d:%H:%M:%S')
 ```
-.
+
+
 You will also need to update the tests. Change line 7 of `example-app/utils/tests/test_time.py`
 ```
     assert(format_time(current_time) == datetime.strftime(current_time, '%Y-%m-%d %H:%M:%S'))
