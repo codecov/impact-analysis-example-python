@@ -1,6 +1,6 @@
 # Python RTI Example
 
-[![codecov](https://codecov.io/gh/codecov/python-rti-example/branch/main/graph/badge.svg?token=pjzL5RLQL1)](https://codecov.io/gh/codecov/python-rti-example)
+[![codecov](https://codecov.io/gh/codecov/impact-analysis-example-python/branch/main/graph/badge.svg)](https://codecov.io/gh/codecov/impact-analysis-example-python)
 
 This repository demonstrating how to use Codecov's [Impact Analysis](https://about.codecov.io/product/feature/impact-analysis/) feature with python. It runs with the [Flask](https://flask.palletsprojects.com/en/2.1.x/) framework and leverages the [codecov/opentelem-python](https://github.com/codecov/opentelem-python) package to send information to Codecov's Runtime Insights API.
 
@@ -14,13 +14,19 @@ The following section details how to get started with Impact Analysis. Before ge
 1. `python` version 3+
 2. An account on [Codecov](https://about.codecov.com)
 
-### Using this repository
+<br />
 
 **Step 1: Fork and clone this repository**
+-------------
+
 [Fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo#forking-a-repository) this repository from GitHub. It is strongly recommended that you fork the repository to your personal GitHub account.
 Clone your new repository to your local machine.
 
+<br />
+
 **Step 2: Set the `profiling token`**
+-------------
+
 Go to [Codecov](https://app.codecov.io/gh) and find the fork in the list of repositories. Note that it may be under `Not yet setup` in the right-hand section.
 
 In the `settings` page, grab the `Impact analysis token`, and set the token locally in a terminal.
@@ -28,13 +34,21 @@ In the `settings` page, grab the `Impact analysis token`, and set the token loca
 export CODECOV_OPENTELEMETRY_TOKEN='***'
 ```
 
+<br />
+
 **Step 3: Install the dependencies**
+-------------
+
 Install all dependencies for this project. It is highly recommended to do this in a virtual environment.
 ```
 pip install -r requirements.txt
 ```
 
+<br />
+
 **Step 4: Run the server locally and generate profiling data**
+-------------
+
 Run the server from your machine using the command
 ```
 python example-app/app.py
@@ -55,18 +69,28 @@ If the token has been set properly, you should see the server running with the f
 You can view the app by going to `http://127.0.0.1:8080`.
 The app has two pages, the main page that has a button to `Get the time`, while the other page displays the time.
 
+<br />
+
 **Step 5: Overloading the `/time` endpoint**
+-------------
+
 In order for us to see what happens when we change a critical (frequently hit) line, we will need to hit the `/time` endpoint. In a python shell, run the following with the server running
 ```
 import requests
+import time
 
 for i in range(100):
     print(i)
     requests.get('http://127.0.0.1:8080/time')
+    time.sleep(0.1)
 ```
 This should hit our `/time` endpoint 100 times and upload the telemetry data to Codecov.
 
+<br />
+
 **Step 6: Making a change to critical code**
+-------------
+
 Let's now make a change in our code to see if what we are changing is critical.
 
 In `example-app/utils/time.py`, update line 4 from
@@ -96,7 +120,11 @@ git push origin test-codecov
 ```
 Open a new pull request. Be sure to set the base branch to your fork.
 
+<br />
+
 **Step 7: Seeing Impact Analysis in the UI**
+-------------
+
 After CI/CD has completed, you should see a comment from Codecov. The comment will now show 2 new elements
 
 1. Under `impacted files`, you should see a `Critical` label next to `example-app/utils/time.py`. This means that the PR has a change in that file that is frequently hit in production.
@@ -105,3 +133,4 @@ After CI/CD has completed, you should see a comment from Codecov. The comment wi
 You should now be able to see how Impact Analysis can give crucial information on how a code change can affect critical code in your system.
 
 ### Using your own repositories
+To get started with Impact Analysis on your own repositories, check out our getting started [guide](https://docs.codecov.com/docs/impact-analysis-python).
