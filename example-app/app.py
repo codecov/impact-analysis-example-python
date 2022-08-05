@@ -67,5 +67,3 @@ def current_time():
         'time.html',
         time=format_time(datetime.now()),
     )
-
-app.run(host='0.0.0.0', port=8080)

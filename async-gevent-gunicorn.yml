@@ -1,0 +1,18 @@
+version: "3.7"
+services:
+  flask_app:
+    init: true
+    build: 
+      context: .
+      dockerfile: Dockerfile-gevent-gunicorn
+    environment: 
+      - PORT_APP=3000
+      - PORT_API=4000
+      - WORKERS=2
+      - WORKER_CONNECTIONS=1000
+      - CODECOV_OPENTELEMETRY_TOKEN=02c03cab2b86c5ce40301c080f7839d0a4cd4b49
+      - APP_ENV=dev
+      - CURRENT_VERSION=0.0.3
+    ports:
+      - "127.0.0.1:3000:3000"
+

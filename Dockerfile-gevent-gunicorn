@@ -1,0 +1,16 @@
+FROM python:3.8
+
+COPY requirements.txt /requirements.txt
+RUN pip install -r requirements.txt
+
+COPY example-app/app.py /app.py
+COPY example-app/patched.py /patched.py
+COPY example-app/utils /utils
+COPY example-app/static /static
+COPY example-app/templates /templates
+
+CMD gunicorn --worker-class gevent \
+  --workers $WORKERS \
+  --bind 0.0.0.0:$PORT_APP \
+  --worker-connections=$WORKER_CONNECTIONS \
+  patched:app
