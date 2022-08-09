@@ -46,7 +46,9 @@ generator, exporter = get_codecov_opentelemetry_instances(
 )
 provider.add_span_processor(generator)
 provider.add_span_processor(BatchSpanProcessor(exporter))
-provider.add_span_processor(SimpleSpanProcessor(ConsoleSpanExporter()))
+
+# Debug: For printing spans to the console. Uncomment if needed
+# provider.add_span_processor(SimpleSpanProcessor(ConsoleSpanExporter()))
 
 
 app = Flask(
